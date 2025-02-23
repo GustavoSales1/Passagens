@@ -1,0 +1,132 @@
+/* Reset básico */
+body, h1, h2, h3, p, a, form, input, button {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Links e botões */
+a, button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+a:hover, button:hover {
+    background-color: #0056b3;
+}
+
+/* Container geral */
+.container {
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+/* Pacotes de viagem */
+#pacotes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.pacote {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+.pacote h3 {
+    color: #333;
+}
+
+.pacote p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.pacote a {
+    display: block;
+    margin-top: 10px;
+    background-color: #28a745;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.pacote a:hover {
+    background-color: #218838;
+}
+
+/* Página de login */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Página de detalhes */
+#detalhes {
+    text-align: left;
+}
+
+#detalhes h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#detalhes p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#quantidade {
+    width: 60px;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    #pacotes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

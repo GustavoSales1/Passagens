@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Pacote</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Detalhes do Pacote</h2>
+        <p><strong>Destino:</strong> <span id="destino"></span></p>
+        <p><strong>Data de Partida:</strong> <span id="data_partida"></span></p>
+        <p><strong>Preço por pessoa:</strong> R$<span id="preco"></span></p>
+        
+        <label for="quantidade">Quantidade de lugares:</label>
+        <input type="number" id="quantidade" value="1" min="1">
+        <p><strong>Valor Total:</strong> R$<span id="valor_total"></span></p>
+        
+        <a href="/">Voltar</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById("destino").textContent = urlParams.get("destino");
+            document.getElementById("data_partida").textContent = urlParams.get("data_partida");
+            document.getElementById("preco").textContent = urlParams.get("preco");
+
+            const quantidadeInput = document.getElementById("quantidade");
+            const valorTotal = document.getElementById("valor_total");
+
+            function atualizarTotal() {
+                const preco = parseFloat(urlParams.get("preco")) || 0;
+                const quantidade = parseInt(quantidadeInput.value) || 1;
+                valorTotal.textContent = (preco * quantidade).toFixed(2);
+            }
+
+            quantidadeInput.addEventListener("input", atualizarTotal);
+            atualizarTotal();
+        });
+    </script>
+</body>
+</html>

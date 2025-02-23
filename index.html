@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacotes de Viagem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Bem-vindo aos Pacotes de Viagem</h1>
+    <a href="/login">Fazer login</a>
+    
+    <h2>Pacotes Disponíveis</h2>
+    <div id="pacotes-container"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("/pacotes")
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById("pacotes-container");
+                    data.forEach(pacote => {
+                        const div = document.createElement("div");
+                        div.classList.add("pacote");
+                        div.innerHTML = `<h3>${pacote.nome}</h3>
+                                         <p>Destino: ${pacote.destino}</p>
+                                         <p>Data de Partida: ${pacote.data_partida}</p>
+                                         <p>Preço: R$${pacote.preco}</p>
+                                         <a href="/detalhes/${pacote.id}">Ver Detalhes</a>`;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar pacotes:", error));
+        });
+    </script>
+</body>
+</html>
